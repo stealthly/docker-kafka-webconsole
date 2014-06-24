@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/bin/bash
 ZOOKEEPER=`docker ps -a | awk '{print $NF}'  | grep "zookeeper$"`
 ZOOKEEPER_RUNNING=$?
 if [ $ZOOKEEPER_RUNNING -eq 0 ] ;

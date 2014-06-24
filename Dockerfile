@@ -13,10 +13,10 @@ ENV KAFKA_CONSOLE_HOME /opt/kafka-web-console
 RUN wget -q $PLAY_URL -O /tmp/$PLAY_RELEASE.zip
 RUN unzip /tmp/$PLAY_RELEASE.zip -d /opt
 
-RUN mkdir -p $KAFKA_CONSOLE_HOME && cd $KAFKA_CONSOLE_HOME && git clone $KAFKA_CONSOLE_URL
+RUN cd /opt && git clone $KAFKA_CONSOLE_URL
 
 ADD play /usr/bin/play
 
 EXPOSE 8080
 
-CMD cd $KAFKA_CONSOLE_HOME && play
+CMD cd $KAFKA_CONSOLE_HOME && play -DapplyEvolutions.default=true start
