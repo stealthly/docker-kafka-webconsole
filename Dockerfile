@@ -17,4 +17,4 @@ RUN cd /opt && git clone $KAFKA_CONSOLE_URL
 
 EXPOSE 9000
 
-CMD cd $KAFKA_CONSOLE_HOME && $PLAY_HOME/play start -DapplyEvolutions.default=true
+CMD cd $KAFKA_CONSOLE_HOME && $PLAY_HOME/play -DapplyEvolutions.default=true start
