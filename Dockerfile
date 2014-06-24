@@ -15,8 +15,6 @@ RUN unzip /tmp/$PLAY_RELEASE.zip -d /opt
 
 RUN cd /opt && git clone $KAFKA_CONSOLE_URL
 
-ADD play /usr/bin/play
+EXPOSE 9000
 
-EXPOSE 8080
-
-CMD cd $KAFKA_CONSOLE_HOME && play -DapplyEvolutions.default=true start
+CMD cd $KAFKA_CONSOLE_HOME && $PLAY_HOME/play start -DapplyEvolutions.default=true
